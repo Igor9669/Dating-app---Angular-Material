@@ -3,18 +3,33 @@ import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { HttpModule } from '@angular/http';
 
-import { AppComponent } from './app.component';
+// Add Material Design and Angular Flex Layout
+import { MaterialModule } from '@angular/material';
+import { FlexLayoutModule } from '@angular/flex-layout';
+
+// importing our service
+import { ModelsService } from './models.service';
+
+import { AppComponent, AddMessageComponent  } from './app.component';
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    AddMessageComponent
+  ],
+  // add to entryComponents
+  entryComponents: [
+    AppComponent,
+    AddMessageComponent
   ],
   imports: [
     BrowserModule,
     FormsModule,
-    HttpModule
+    HttpModule,
+    MaterialModule.forRoot(),
+    FlexLayoutModule.forRoot()
   ],
-  providers: [],
+  providers: [ModelsService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

@@ -1,0 +1,30 @@
+// import all mixins and utils to create a theme
+@import "~@angular/material/core/theming/all-theme";
+
+
+// Include the base styles for Angular Material core
+@include mat-core();
+
+// theme colors
+// @function mat-palette($base-palette, $default: 500, $lighter: 100, $darker: 700)
+$primary: mat-palette($mat-cyan);
+$accent: mat-palette($mat-pink);
+$warn: mat-palette($mat-amber);
+
+// create theme from palettes
+$theme: mat-light-theme($primary, $accent, $warn);
+
+// apply theme
+@include angular-material-theme($theme);
+
+.dark-theme{
+    // theme colors
+    $primary-dark: mat-palette($mat-pink, 700);
+    $accent-dark: mat-palette($mat-green);
+    $warn-dark: mat-palette($mat-red);
+
+    $theme-dark: mat-dark-theme($primary-dark, $accent-dark, $warn-dark);
+
+    // create theme from palettes
+    @include angular-material-theme($theme-dark);
+}
